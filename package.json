@@ -1,0 +1,26 @@
+{
+  "name": "npm-registry-proxy",
+  "version": "0.1.0",
+  "description": "A simple http server that proxies connections to the npm registry.",
+  "bin": {
+    "npm-registry-proxy": "./bin/npm-registry-proxy"
+  },
+  "scripts": {
+    "start": "./bin/npm-registry-proxy",
+    "test": "cake test"
+  },
+  "dependencies": {
+    "coffee-script": "1.4.x",
+    "commander": "1.1.x"
+  },
+  "devDependencies": {
+    "mocha": "1.8.x",
+    "chai": "1.4.x",
+    "nock": "0.14.x",
+    "request": "2.12.x"
+  },
+  "repository": "",
+  "author": "Johnny Gannon",
+  "license": "BSD",
+  "private": true
+}

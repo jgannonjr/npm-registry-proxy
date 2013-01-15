@@ -1,0 +1,20 @@
+#!/usr/bin/env coffee
+
+program = require 'commander'
+server = require '../server'
+fs = require 'fs'
+path = require 'path'
+
+version = (JSON.parse fs.readFileSync path.join __dirname, '../package.json').version
+
+program
+  .version(version)
+  .option('-h, --host <value>', 'Set host name for listening server (default is localhost)')
+  .option('-p, --port <n>', 'Set port number for listening server (default is 3000)', parseInt)
+  .parse(process.argv);
+
+options = {}
+if program.host? then options.host = program.host
+if program.port? then options.port = program.port
+
+server.start options
