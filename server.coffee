@@ -13,6 +13,7 @@ exports = module.exports
 server = http.createServer (request, response) ->
 
   headers = request.headers
+  request_host = headers.host
   delete headers.host
 
   npmRequestOptions = 
@@ -44,7 +45,7 @@ server = http.createServer (request, response) ->
           try
             npmEntry = JSON.parse (chunks.join '')
             for own versionNum, info of npmEntry.versions
-              newURL = npmEntry['versions'][versionNum]['dist']['tarball'].replace 'registry.npmjs.org', "#{host}:#{port}"
+              newURL = npmEntry['versions'][versionNum]['dist']['tarball'].replace 'registry.npmjs.org', request_host
               npmEntry['versions'][versionNum]['dist']['tarball'] = newURL
             response.write JSON.stringify npmEntry
           catch e
