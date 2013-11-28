@@ -1,3 +1,5 @@
+[![Build Status](https://api.travis-ci.org/jgannonjr/npm-registry-proxy.png?branch=master)](https://travis-ci.org/jgannonjr/npm-registry-proxy)
+
 A simple http server that proxies connections to the npm registry.  Written in coffee-script.
 
 
